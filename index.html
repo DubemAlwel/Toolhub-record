@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RECORDS</title>
+	<link rel="stylesheet" type="text/css" href="css/toolhub.css">
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<h2>TOOLHUB</h2>
+			<span>
+				<button id="myBtn"> ADD NEW TOOL</button>
+			</span>
+		</header>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>TITLE</th>
+					<th>DESCRIPTION</th>
+					<th>TOOL TYPE</th>
+					<th colspan="2" style="text-align:center;">ACTIONS</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Vincent Williamson</td>
+					<td>31</td>
+					<td>iOS Dev</td>
+					<td>Washington, DC</td>
+					<td><a href="edit.html">EDIT</a></td>
+					<td><a class="del" onclick="confirm('Are you sure you want to delete?')" href="deletepage">DELETE</a></td>
+				</tr>
+				<tr>
+					<td>Vincent Williamson</td>
+					<td>31</td>
+					<td>iOS Dev</td>
+					<td>Washington, DC</td>
+					<td><a href="#">EDIT</a></td>
+					<td><a class="del" onclick="confirm('Are you sure you want to delete?')" href="#">DELETE</a></td>
+				</tr>
+				<tr>
+					<td>Vincent Williamson</td>
+					<td>31</td>
+					<td>iOS Dev</td>
+					<td>Washington, DC</td>
+					<td><a href="#">EDIT</a></td>
+					<td><a class="del" href="#">DELETE</a></td>
+				</tr>
+				<tr>
+					<td>Vincent Williamson</td>
+					<td>31</td>
+					<td>iOS Dev</td>
+					<td>Washington, DC</td>
+					<td><a href="#">EDIT</a></td>
+					<td><a class="del" onclick="confirm('Are you sure you want to delete?')" href="#">DELETE</a></td>
+				</tr>
+				<tr>
+					<td>Vincent Williamson</td>
+					<td>31</td>
+					<td>iOS Dev</td>
+					<td>Washington, DC</td>
+					<td><a href="#">EDIT</a></td>
+					<td><a class="del" onclick="confirm('Are you sure you want to delete?')"href="#">DELETE</a></td>
+				</tr>
+				<tr>
+					<td>Vincent Williamson</td>
+					<td>31</td>
+					<td>iOS Dev</td>
+					<td>asdsadsadWashington, DC</td>
+					<td><a href="#">EDIT</a></td>
+					<td><a class="del" onclick="confirm('Are you sure you want to delete?')"href="#">DELETE</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+			<div class="modal-content part2">
+			    <div class="close">&times;</div><br><br>
+			    <form class="modal-content" method="post" action="connector.py">
+				    <div class="container">
+				      <h1>Create New Tool</h1>
+				      <p>Enter Tool Details</p><br>
+				      <hr>
+				      <label for="title"><b>TITLE</b></label>
+				      <input type="text" placeholder="Tool Name" name="title" required>			      
+
+				      <label for="tooltype"><b>Tool Type</b></label>
+				      <select name="tooltype" required>
+				      	<option value="" selected disabled hidden>--Please Select</option>
+				      	<option value="Web App">Web App</option>
+				      	<option value="Desktop App">Desktop App</option>
+				      	<option value="Bot">Bot</option>
+				      	<option value="Gadget">Gadget</option>
+				      	<option value="Template">Template</option>
+				      	<option value="Coding Framework">Coding Framework</option>
+				      </select>
+
+				      <label for="Authorname"><b>Name of Author(s)</b></label>
+				      <input type="text" placeholder="Author Names" name="Authorname" required>
+
+				      <label for="desc"><b>Description</b></label><br>
+				      <textarea id="txtid" name="txtname" rows="4" maxlength="200" required></textarea><br>
+				      
+
+				      <div class="clearfix">
+				        <button id="exit" class="cancelbtn">Cancel</button>
+				        <button type="submit" id="success"class="signupbtn">Create</button>
+				      </div>
+				    </div>
+				 </form>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+<script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var exit = document.getElementById("exit");
+var success = document.getElementById("success");
+var modalcontent =document.querySelectorAll(".modal-content");
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.visibility = "visible";
+  modalcontent.forEach(box => {
+  	box.classList.add("show");
+	});
+}
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.visibility = "hidden";
+  modalcontent.forEach(box => {
+  	box.classList.remove("show");
+	});
+}
+
+exit.onclick = function() {
+  modal.style.visibility = "hidden";
+  modalcontent.forEach(box => {
+  	box.style.transitionDuration="0.1s"
+  	box.classList.remove("show");
+	});
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.visibility = "hidden";
+    modalcontent.forEach(box => {
+	  	box.classList.remove("show");
+		});
+  }
+}
+/*See the success message here Please let the python code run before it shows. Arigato*/
+success.onclick=function(){
+	window.location.href=window.location.href;
+	alert('Tool Created Successfully!');
+}
+</script>
+</body>
+<!--So yeah for the ID, you'd use a function to generate a 7-figure number to just like create ID or anything of your choice. So after we submit it, the page refreshes and goes back to the records page and shit. Same thing goes for the edit page. Should be simple for a man of your class. SIR HILLARY OGBODO MESSI! Thank You and You're welcome!-->
+</html>

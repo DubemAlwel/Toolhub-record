@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RECORDS</title>
+	<link rel="stylesheet" type="text/css" href="css/edit.css">
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<h2>TOOLHUB</h2>
+		</header>
+		<div class="form-handler">
+			<h2>Edit page</h2>
+			<form id="form" action="connector.py" method="post">
+				<label>TITLE</label>
+				      <input type="text" placeholder="Tool Name" name="title" value="" required>			      
+
+				      <label for="tooltype">Tool Type</label>
+				      <select name="tooltype" required>
+				      	<option value="value selected before" selected></option>
+				      	<option value="Web App">Web App</option>
+				      	<option value="Desktop App">Desktop App</option>
+				      	<option value="Bot">Bot</option>
+				      	<option value="Gadget">Gadget</option>
+				      	<option value="Template">Template</option>
+				      	<option value="Coding Framework">Coding Framework</option>
+				      </select>
+
+				      <label for="Authorname"><b>Name of Author(s)</b></label>
+				      <input type="text" placeholder="Author Names" name="Authorname" value="" required>
+
+				      <label for="desc"><b>Description</b></label>
+				      <textarea id="txtid" name="txtname" rows="4" maxlength="200" required></textarea><br>
+				      <div class="clearfix">
+				        <button type="button" id="success" class="signupbtn">Update</button>
+				      </div>
+			</form>
+		</div>
+	</div>
+	<script>
+
+		var success = document.getElementById("success");
+		var form = document.getElementById("form");
+		success.onclick=function(){
+			alert('Tool Updated Successfully!')
+			window.location.href='index.html';		
+		}
+	</script>
+</body>
+</html>
